@@ -316,8 +316,11 @@ const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),80);obs.unobserve(e.target);}});
 },{threshold:0.08});
-reveals.forEach(el=>obs.observe(el));
-
-// Mobile nav
 const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobil
+const mobileNav = document.getElementById('mobileNav');
+const closeNav = document.getElementById('closeNav');
+if(hamburger) hamburger.addEventListener('click',function(){mobileNav.classList.add('open');});
+if(closeNav) closeNav.addEventListener('click',function(){mobileNav.classList.remove('open');});
+</script>
+</body>
+</html>
