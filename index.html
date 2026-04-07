@@ -81,15 +81,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .service-arrow{display:inline-block;margin-top:1.5rem;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);}
 
 /* GALLERY */
-.gallery-strip{display:grid;grid-template-columns:2fr 1fr 1fr;height:460px;gap:3px;background:var(--stone);}
-.gallery-strip-right{display:grid;grid-template-rows:1fr 1fr;gap:3px;}
-.gallery-img-wrap{overflow:hidden;position:relative;}
+.gallery-strip{display:grid;grid-template-columns:2fr 1fr 1fr;height:460px;gap:3px;background:var(--stone);overflow:hidden;position:relative;z-index:0;}
+.gallery-strip-right{display:grid;grid-template-rows:1fr 1fr;gap:3px;min-width:0;overflow:hidden;}
+.gallery-img-wrap{overflow:hidden;position:relative;min-width:0;min-height:0;}
 .gallery-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s;}
 .gallery-img-wrap:hover img{transform:scale(1.06);}
-.gallery-label{position:absolute;bottom:1.2rem;left:1.2rem;font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:#fff;background:rgba(44,40,32,0.75);padding:0.5rem 1rem;}
+.gallery-label{position:absolute;bottom:1rem;left:1rem;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#fff;background:rgba(44,40,32,0.85);padding:0.4rem 0.9rem;z-index:2;white-space:nowrap;pointer-events:none;}
 
 /* TESTIMONIAL */
-.testimonial-strip{background:var(--cream);padding:8rem 4rem;text-align:center;}
+.testimonial-strip{background:var(--cream);padding:8rem 4rem;text-align:center;position:relative;z-index:1;}
 .testimonial-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;font-style:italic;color:var(--deep);max-width:700px;margin:0 auto 2rem;line-height:1.5;}
 .testimonial-author{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);}
 
@@ -130,9 +130,9 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
   .hero-left{padding:5rem 2rem 3rem;}
   .services-intro{grid-template-columns:1fr;padding:5rem 2rem;gap:3rem;}
   .services-grid-home{grid-template-columns:1fr;}
-  .gallery-strip{grid-template-columns:1fr;height:auto;}
-  .gallery-strip-right{grid-template-rows:auto;}
-  .gallery-img-wrap{height:280px;}
+  .gallery-strip{grid-template-columns:1fr;height:auto;overflow:hidden;}
+  .gallery-strip-right{grid-template-rows:auto;overflow:hidden;}
+  .gallery-img-wrap{height:260px;}
   .testimonial-strip{padding:5rem 2rem;}
   .cta-band{grid-template-columns:1fr;padding:5rem 2rem;}
   .footer-top{grid-template-columns:1fr 1fr;gap:3rem;}
