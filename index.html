@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reset Co &mdash; Hospitality Cleaning &mdash; Reset Co</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@ body{font-family:'Jost',sans-serif;font-weight:300;background:var(--white);color
 .cursor{width:8px;height:8px;background:var(--sage);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform 0.15s;}
 .cursor-ring{width:32px;height:32px;border:1px solid var(--stone);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all 0.3s;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.6rem 4rem;background:rgba(253,252,250,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,188,168,0.2);}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.15em;color:var(--deep);text-transform:uppercase;text-decoration:none;}
+.nav-logo{text-decoration:none;display:flex;align-items:center;} .nav-logo-img{height:38px;width:38px;}
 .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
 .nav-links a{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--bark);text-decoration:none;transition:color 0.3s;}
 .nav-links a:hover,.nav-links a.active{color:var(--sage);}
@@ -123,7 +124,7 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursorRing"></div><nav><a href="index.html" class="nav-logo">Reset Co</a><ul class="nav-links"><li><a href="index.html" class="active">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="process.html">Our Process</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html" class="nav-cta">Enquire</a></li></ul><button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button></nav>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursorRing"></div><nav><a href="index.html" class="nav-logo"><img src="logo.png" alt="Reset Co" class="nav-logo-img"></a><ul class="nav-links"><li><a href="index.html" class="active">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="process.html">Our Process</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html" class="nav-cta">Enquire</a></li></ul><button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button></nav>
 <div class="nav-mobile" id="mobileNav"><button class="nav-close" id="closeNav">&#x2715;</button><a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="process.html">Process</a><a href="gallery.html">Gallery</a><a href="contact.html">Enquire</a></div>
 <section class="hero">
   <div class="hero-left">
@@ -150,7 +151,7 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
   <a href="service-spa.html" class="service-card reveal"><div class="service-number">02</div><h3 class="service-name">Spa &amp; Wellness</h3><p class="service-desc">Treatment rooms, relaxation areas, change rooms and wet zones.</p><span class="service-arrow">Learn more &rarr;</span></a>
   <a href="service-accommodation.html" class="service-card reveal"><div class="service-number">03</div><h3 class="service-name">Accommodation</h3><p class="service-desc">Guest rooms, lobbies, linen coordination and turndown-ready presentation.</p><span class="service-arrow">Learn more &rarr;</span></a>
   <a href="service-events.html" class="service-card reveal"><div class="service-number">04</div><h3 class="service-name">Event Venues</h3><p class="service-desc">Pre-event prep and post-event restoration. Fast turnarounds, no compromises.</p><span class="service-arrow">Learn more &rarr;</span></a>
-  <a href="service-cellar.html" class="service-card reveal"><div class="service-number">05</div><h3 class="service-name">Cellar Doors</h3><p class="service-desc">Tasting rooms, barrel halls and outdoor terrace cleaning for wineries.</p><span class="service-arrow">Learn more &rarr;</span></a>
+  <a href="service-fitness.html" class="service-card reveal"><div class="service-number">05</div><h3 class="service-name">Fitness &amp; Studios</h3><p class="service-desc">Gyms, yoga studios and Pilates spaces kept fresh between every class.</p><span class="service-arrow">Learn more &rarr;</span></a>
   <a href="services.html" class="service-card reveal"><div class="service-number">06</div><h3 class="service-name">Ongoing Programs</h3><p class="service-desc">Tailored maintenance schedules built around your venue, every day.</p><span class="service-arrow">Learn more &rarr;</span></a>
 </div>
 <div class="gallery-strip">
@@ -179,7 +180,7 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
 </section><footer>
   <div class="footer-top">
     <div><div class="footer-brand-name">Reset Co</div><div class="footer-brand-tag">Hospitality Cleaning &middot; Yarra Valley, VIC</div><p class="footer-brand-desc">Premium cleaning for restaurants, spas, and accommodation across the Yarra Valley and surrounds.</p></div>
-    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="service-dining.html">Dining &amp; Restaurant</a></li><li><a href="service-spa.html">Spa &amp; Wellness</a></li><li><a href="service-accommodation.html">Accommodation</a></li><li><a href="service-cellar.html">Cellar Doors</a></li></ul></div>
+    <div><div class="footer-col-title">Services</div><ul class="footer-links"><li><a href="service-dining.html">Dining &amp; Restaurant</a></li><li><a href="service-spa.html">Spa &amp; Wellness</a></li><li><a href="service-accommodation.html">Accommodation</a></li><li><a href="service-fitness.html">Fitness &amp; Studios</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="process.html">Our Process</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:hello@resetco.com.au">hello@resetco.com.au</a></li><li><a href="#">0400 000 000</a></li><li><a href="#">Yarra Valley &amp; Surrounds, VIC</a></li><li><a href="#">Available 7 days</a></li></ul></div>
   </div>

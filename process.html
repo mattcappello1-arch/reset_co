@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Process &mdash; Reset Co</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@ body{font-family:'Jost',sans-serif;font-weight:300;background:var(--white);color
 .cursor{width:8px;height:8px;background:var(--sage);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform 0.15s;}
 .cursor-ring{width:32px;height:32px;border:1px solid var(--stone);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all 0.3s;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.6rem 4rem;background:rgba(253,252,250,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,188,168,0.2);}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.15em;color:var(--deep);text-transform:uppercase;text-decoration:none;}
+.nav-logo{text-decoration:none;display:flex;align-items:center;} .nav-logo-img{height:38px;width:38px;}
 .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
 .nav-links a{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--bark);text-decoration:none;transition:color 0.3s;}
 .nav-links a:hover,.nav-links a.active{color:var(--sage);}
@@ -84,7 +85,7 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
 <body>
 <div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursorRing"></div>
 <nav>
-  <a href="index.html" class="nav-logo">Reset Co</a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Reset Co" class="nav-logo-img"></a>
   <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="process.html" class="active">Our Process</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html" class="nav-cta">Enquire</a></li></ul>
   <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
@@ -114,13 +115,15 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
 <section style="background:var(--deep);padding:8rem 4rem;">
   <div class="reveal" style="text-align:center;margin-bottom:4rem;">
     <span class="section-label" style="color:var(--sage);">The Process</span>
-    <h2 class="section-title" style="color:var(--cream);">Four steps to a<br><em>perfect reset.</em></h2>
+    <h2 class="section-title" style="color:var(--cream);">Six steps to a<br><em>perfect reset.</em></h2>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(200,188,168,0.1);">
-    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">01</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">The Venue <em style="font-style:italic;color:var(--stone);">Walk</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">We come to you. Walk every space, understand your operation, listen to your standards. No assumptions, no templates.</p></div>
-    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">02</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Your Custom <em style="font-style:italic;color:var(--stone);">Program</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">We build a cleaning program entirely around your venue — service times, peak seasons, guest flow, area priorities.</p></div>
-    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">03</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">The <em style="font-style:italic;color:var(--stone);">Reset</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">Our team arrives, works quietly and thoroughly, and leaves your space exactly as your guests deserve to find it.</p></div>
-    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">04</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Ongoing <em style="font-style:italic;color:var(--stone);">Care</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">Regular check-ins, flexible adjustments, and a team that gets to know your venue as well as you do.</p></div>
+    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">01</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Initial <em style="font-style:italic;color:var(--stone);">Conversation</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">Every space is different. We begin with a simple conversation to understand your needs, your flow, and what matters most day to day.</p></div>
+    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">02</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">The <em style="font-style:italic;color:var(--stone);">Walkthrough</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">We visit your space in person. This allows us to observe how it operates, identify key areas of focus, and ensure everything is aligned from the beginning.</p></div>
+    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">03</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Tailored <em style="font-style:italic;color:var(--stone);">Approach</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">Following the walkthrough, we create a cleaning plan designed specifically for your space. Thoughtful, practical, and built to support your daily rhythm.</p></div>
+    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">04</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Seamless <em style="font-style:italic;color:var(--stone);">Start</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">Once everything feels right, we confirm the details and begin. Our onboarding is simple and considered, so the transition feels easy.</p></div>
+    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">05</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Ongoing <em style="font-style:italic;color:var(--stone);">Care</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">Consistency is everything. We maintain a high standard across every visit, ensuring your space always feels fresh, clean, and ready.</p></div>
+    <div class="reveal" style="background:var(--deep);padding:4rem 3.5rem;"><div style="font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(200,188,168,0.1);line-height:1;margin-bottom:1.5rem;">06</div><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:var(--cream);margin-bottom:1rem;">Continuous <em style="font-style:italic;color:var(--stone);">Refinement</em></h3><p style="font-size:0.78rem;line-height:2;color:rgba(200,188,168,0.6);">We stay connected. As your space evolves, we refine our approach to ensure it continues to support you in the best way.</p></div>
   </div>
 </section>
 <section style="padding:8rem 4rem;background:var(--cream);">
@@ -166,7 +169,7 @@ document.querySelectorAll('.faq-q').forEach(function(q){
       <li><a href="service-dining.html">Dining &amp; Restaurant</a></li>
       <li><a href="service-spa.html">Spa &amp; Wellness</a></li>
       <li><a href="service-accommodation.html">Accommodation</a></li>
-      <li><a href="service-cellar.html">Cellar Doors</a></li>
+      <li><a href="service-fitness.html">Fitness &amp; Studios</a></li>
     </ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links">
       <li><a href="about.html">About Us</a></li>
