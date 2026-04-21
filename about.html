@@ -177,7 +177,7 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
     <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 document.body.classList.add('js-ready');
 var cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
 if(cursor&&ring){
@@ -195,4 +195,9 @@ if('IntersectionObserver' in window){
   var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('visible');},80);obs.unobserve(e.target);}});},{threshold:0.08});
   reveals.forEach(function(el){obs.observe(el);});
 }else{reveals.forEach(function(el){el.classList.add('visible');});}
-var hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav'),closeNav=document
+var hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav'),closeNav=document.getElementById('closeNav');
+if(hamburger)hamburger.addEventListener('click',function(){mobileNav.classList.add('open');});
+if(closeNav)closeNav.addEventListener('click',function(){mobileNav.classList.remove('open');});
+</script>
+</body>
+</html>
