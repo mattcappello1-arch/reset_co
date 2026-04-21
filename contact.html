@@ -106,8 +106,8 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);line-height:1.2;">We'd love to hear<br>about your <em style="font-style:italic;color:var(--stone);">venue.</em></h2>
     <p style="font-size:0.8rem;line-height:2;color:rgba(200,188,168,0.6);margin-top:1.5rem;">Tell us what you need and we'll get back to you within one business day.</p>
     <div style="margin-top:3rem;">
-      <div style="display:flex;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(200,188,168,0.15);"><span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);min-width:80px;">Email</span><span style="font-size:0.82rem;color:rgba(200,188,168,0.7);">hello@resetco.com.au</span></div>
-      <div style="display:flex;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(200,188,168,0.15);"><span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);min-width:80px;">Phone</span><span style="font-size:0.82rem;color:rgba(200,188,168,0.7);">0400 000 000</span></div>
+      <div style="display:flex;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(200,188,168,0.15);"><span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);min-width:80px;">Email</span><span style="font-size:0.82rem;color:rgba(200,188,168,0.7);">info.resetco@gmail.com</span></div>
+      <div style="display:flex;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(200,188,168,0.15);"><span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);min-width:80px;">Phone</span><span style="font-size:0.82rem;color:rgba(200,188,168,0.7);">Coming soon</span></div>
       <div style="display:flex;gap:2rem;padding:1.5rem 0;border-bottom:1px solid rgba(200,188,168,0.15);"><span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);min-width:80px;">Location</span><span style="font-size:0.82rem;color:rgba(200,188,168,0.7);">Yarra Valley &amp; Surrounds, VIC</span></div>
       <div style="display:flex;gap:2rem;padding:1.5rem 0;"><span style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);min-width:80px;">Hours</span><span style="font-size:0.82rem;color:rgba(200,188,168,0.7);">Available 7 days &middot; After hours on request</span></div>
     </div>
@@ -115,17 +115,24 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
   <div class="reveal" style="background:var(--cream);padding:7rem 5rem;display:flex;flex-direction:column;justify-content:center;">
     <span class="section-label">Enquiry Form</span>
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--deep);margin-bottom:2.5rem;">Tell us about your <em style="font-style:italic;color:var(--sage);">space.</em></h3>
+    <form id="contactForm" action="https://formsubmit.co/info.resetco@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Enquiry from Reset Co Website">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://reset-co.vercel.app/contact.html?sent=true">
+    <input type="text" name="_honey" style="display:none">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;">
-      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Your Name</label><input type="text" placeholder="Full name" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Venue Name</label><input type="text" placeholder="Your venue" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Your Name</label><input type="text" name="name" placeholder="Full name" required style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Venue Name</label><input type="text" name="venue" placeholder="Your venue" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;">
-      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Email</label><input type="email" placeholder="your@email.com" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
-      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Phone</label><input type="tel" placeholder="04XX XXX XXX" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Email</label><input type="email" name="email" placeholder="your@email.com" required style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Phone</label><input type="tel" name="phone" placeholder="04XX XXX XXX" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;width:100%;"/></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Venue Type</label><select style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;cursor:pointer;appearance:none;width:100%;"><option value="">Select your venue type</option><option>Restaurant / Caf&eacute;</option><option>Spa / Wellness Centre</option><option>Accommodation / Hotel</option><option>Event Venue</option><option>Fitness &amp; Studios / Winery</option><option>Other</option></select></div>
-    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Tell us about your venue</label><textarea placeholder="Size, frequency, any specific requirements..." style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;resize:none;height:90px;width:100%;"></textarea></div>
-    <button onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--deep)'" style="background:var(--deep);color:var(--cream);border:none;padding:1.1rem 3rem;font-family:'Jost',sans-serif;font-size:0.7rem;font-weight:300;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:background 0.3s;align-self:flex-start;">Send Enquiry</button>
+    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Venue Type</label><select name="venue_type" style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;cursor:pointer;appearance:none;width:100%;"><option value="">Select your venue type</option><option>Restaurant / Caf&eacute;</option><option>Spa / Wellness Centre</option><option>Accommodation / Hotel</option><option>Event Venue</option><option>Fitness &amp; Studios</option><option>Winery / Cellar Door</option><option>Other</option></select></div>
+    <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;"><label style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);">Tell us about your venue</label><textarea name="message" placeholder="Size, frequency, any specific requirements..." style="background:transparent;border:none;border-bottom:1px solid var(--stone);padding:0.75rem 0;font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:300;color:var(--deep);outline:none;resize:none;height:90px;width:100%;"></textarea></div>
+    <button type="submit" id="submitBtn" onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--deep)'" style="background:var(--deep);color:var(--cream);border:none;padding:1.1rem 3rem;font-family:'Jost',sans-serif;font-size:0.7rem;font-weight:300;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:background 0.3s;align-self:flex-start;">Send Enquiry</button>
+    <p id="formStatus" style="font-size:0.75rem;color:var(--sage);margin-top:1rem;display:none;"></p>
+    </form>
   </div>
 </div>
 <footer>
@@ -148,8 +155,8 @@ footer{background:var(--deep);padding:5rem 4rem 3rem;}
       <li><a href="contact.html">Contact</a></li>
     </ul></div>
     <div><div class="footer-col-title">Contact</div><ul class="footer-links">
-      <li><a href="mailto:hello@resetco.com.au">hello@resetco.com.au</a></li>
-      <li><a href="#">0400 000 000</a></li>
+      <li><a href="mailto:info.resetco@gmail.com">info.resetco@gmail.com</a></li>
+      <li><a href="#">Yarra Valley &amp; Surrounds, VIC</a></li>
       <li><a href="#">Yarra Valley &amp; Surrounds, VIC</a></li>
       <li><a href="#">Available 7 days</a></li>
     </ul></div>
@@ -180,6 +187,13 @@ if('IntersectionObserver' in window){
 var hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav'),closeNav=document.getElementById('closeNav');
 if(hamburger)hamburger.addEventListener('click',function(){mobileNav.classList.add('open');});
 if(closeNav)closeNav.addEventListener('click',function(){mobileNav.classList.remove('open');});
+// Show success message if redirected back after form submission
+if(window.location.search.includes('sent=true')){
+  var status=document.getElementById('formStatus');
+  if(status){status.textContent='Thank you! Your enquiry has been sent. We\'ll be in touch within one business day.';status.style.display='block';}
+  var form=document.getElementById('contactForm');
+  if(form)form.reset();
+}
 </script>
 </body>
 </html>
