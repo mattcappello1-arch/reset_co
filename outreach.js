@@ -301,6 +301,19 @@ async function cmdScan() {
 
   console.log(`\n${replied} leads marked as "Replied".`);
   console.log(`${Object.keys(emailToLead).length} active leads with no reply yet.`);
+
+  // Show replied leads ready for walkthrough
+  if (replied > 0) {
+    const repliedLeads = await queryLeads('Replied');
+    if (repliedLeads.length > 0) {
+      console.log('\n--- Ready for walkthrough ---');
+      for (const lead of repliedLeads) {
+        console.log(`  ${lead.name.padEnd(30)} ${lead.email.padEnd(35)} ${lead.phone || ''}`);
+      }
+      console.log(`\nAfter the walkthrough, send a proposal:`);
+      console.log(`  node outreach.js propose <email>`);
+    }
+  }
 }
 
 async function cmdClose() {
@@ -328,6 +341,75 @@ async function cmdClose() {
     console.log(`  CLOSED  ${lead.name} (${lead.email})`);
   }
   console.log(`\n${closed} leads moved to "No Response".`);
+}
+
+async function cmdReplied() {
+  const leads = await queryLeads('Replied');
+  if (leads.length === 0) {
+    console.log('No replied leads at the moment.');
+    return;
+  }
+  console.log(`\n${leads.length} leads have replied — ready for walkthrough:\n`);
+  for (const lead of leads) {
+    console.log(`  ${lead.name}`);
+    console.log(`    Email:   ${lead.email}`);
+    if (lead.phone) console.log(`    Phone:   ${lead.phone}`);
+    if (lead.suburb) console.log(`    Suburb:  ${lead.suburb}`);
+    console.log(`    Type:    ${lead.serviceType.join(', ') || 'Not set'}`);
+    console.log('');
+  }
+  console.log('After a walkthrough, send a proposal:');
+  console.log('  node outreach.js propose <email>');
+}
+
+async function cmdPropose() {
+  const email = process.argv[3];
+  if (!email) {
+    console.log('Usage: node outreach.js propose <email>');
+    console.log('');
+    // List replied leads
+    const replied = await queryLeads('Replied');
+    if (replied.length > 0) {
+      console.log('Replied leads ready for proposal:');
+      for (const lead of replied) {
+        console.log(`  node outreach.js propose ${lead.email}    # ${lead.name}`);
+      }
+    }
+    return;
+  }
+
+  // Find the lead by email
+  const allLeads = await queryAllLeads();
+  const lead = allLeads.find(l => l.email?.toLowerCase() === email.toLowerCase());
+
+  if (!lead) {
+    console.log(`No lead found with email: ${email}`);
+    return;
+  }
+
+  console.log(`Sending proposal to ${lead.name} (${lead.email})...\n`);
+
+  const html = loadTemplate('04-proposal.html');
+  const subject = `Cleaning proposal for your space`;
+
+  try {
+    await transporter.sendMail({
+      from: '"Reset Co" <info.resetco@gmail.com>',
+      to: lead.email,
+      subject,
+      html,
+    });
+
+    await updateLead(lead.id, {
+      'Status': { status: { name: 'Proposal Sent' } },
+      'Notes': { rich_text: [{ text: { content: `Proposal sent ${today()}. ${lead.notes || ''}`.trim() } }] },
+    });
+
+    console.log(`  SENT  Proposal to ${lead.name} (${lead.email})`);
+    console.log(`  Status moved to "Proposal Sent"`);
+  } catch (err) {
+    console.error(`  FAILED: ${err.message}`);
+  }
 }
 
 async function cmdStatus() {
@@ -364,6 +446,12 @@ switch (command) {
   case 'close':
     cmdClose();
     break;
+  case 'replied':
+    cmdReplied();
+    break;
+  case 'propose':
+    cmdPropose();
+    break;
   case 'status':
     cmdStatus();
     break;
@@ -373,20 +461,22 @@ switch (command) {
     console.log('Usage: node outreach.js <command>');
     console.log('');
     console.log('Commands:');
-    console.log('  send      Send intros to all "New" leads');
-    console.log('  followup  Send follow-ups to "Contacted" leads (5+ days, no reply)');
-    console.log('  scan      Check Gmail for replies, move leads to "Replied"');
-    console.log('  close     Mark stale "Follow Up Sent" leads as "No Response" (7+ days)');
-    console.log('  status    Show lead counts by status');
+    console.log('  send        Send intros to all "New" leads');
+    console.log('  followup    Send follow-ups to "Contacted" leads (5+ days, no reply)');
+    console.log('  scan        Check Gmail for replies, move leads to "Replied"');
+    console.log('  replied     List all replied leads ready for walkthrough');
+    console.log('  propose     Send proposal after walkthrough: propose <email>');
+    console.log('  close       Mark stale "Follow Up Sent" leads as "No Response" (7+ days)');
+    console.log('  status      Show lead counts by status');
     console.log('');
     console.log('Workflow:');
-    console.log('  1. node outreach.js send       — blast intros to new leads');
+    console.log('  1. node outreach.js send         — blast intros to new leads');
     console.log('  2. wait 5 days');
-    console.log('  3. node outreach.js scan       — check for replies first');
-    console.log('  4. node outreach.js followup   — send follow-ups to non-repliers');
-    console.log('  5. wait 7 days');
-    console.log('  6. node outreach.js scan       — check for replies again');
-    console.log('  7. node outreach.js close      — shelve non-responders');
-    console.log('  8. node outreach.js status     — see where everything stands');
+    console.log('  3. node outreach.js scan         — check for replies');
+    console.log('  4. node outreach.js followup     — send follow-ups to non-repliers');
+    console.log('  5. node outreach.js scan         — check for more replies');
+    console.log('  6. node outreach.js close        — shelve non-responders (7+ days)');
+    console.log('  7. node outreach.js replied      — see who to walk through');
+    console.log('  8. node outreach.js propose <email>  — send proposal after walkthrough');
     break;
 }
