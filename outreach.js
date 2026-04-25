@@ -59,6 +59,33 @@ function loadTemplate(filename) {
   return html;
 }
 
+function htmlToText(html) {
+  return html
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&mdash;/g, ',')
+    .replace(/&amp;/g, '&')
+    .replace(/&#10003;/g, '✓')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function sendMail(to, subject, html) {
+  return transporter.sendMail({
+    from: '"Mel at Reset Co" <info.resetco@gmail.com>',
+    to,
+    replyTo: 'info.resetco@gmail.com',
+    subject,
+    html,
+    text: htmlToText(html),
+    headers: {
+      'X-Mailer': 'Reset Co',
+      'List-Unsubscribe': '<mailto:info.resetco@gmail.com?subject=unsubscribe>',
+    },
+  });
+}
+
 // --- Notion API ---
 async function notionRequest(method, endpoint, body) {
   const res = await fetch(`https://api.notion.com/v1/${endpoint}`, {
@@ -163,12 +190,7 @@ async function cmdSend() {
     const html = loadTemplate(template.file);
 
     try {
-      await transporter.sendMail({
-        from: '"Reset Co" <info.resetco@gmail.com>',
-        to: lead.email,
-        subject: template.subject,
-        html,
-      });
+      await sendMail(lead.email, template.subject, html);
 
       await updateLead(lead.id, {
         'Status': { status: { name: 'Contacted' } },
@@ -208,12 +230,7 @@ async function cmdFollowUp() {
     const html = loadTemplate('02-follow-up.html');
 
     try {
-      await transporter.sendMail({
-        from: '"Reset Co" <info.resetco@gmail.com>',
-        to: lead.email,
-        subject: 'A gentle follow up',
-        html,
-      });
+      await sendMail(lead.email, 'A gentle follow up', html);
 
       await updateLead(lead.id, {
         'Status': { status: { name: 'Follow Up Sent' } },
@@ -393,12 +410,7 @@ async function cmdPropose() {
   const subject = `Cleaning proposal for your space`;
 
   try {
-    await transporter.sendMail({
-      from: '"Reset Co" <info.resetco@gmail.com>',
-      to: lead.email,
-      subject,
-      html,
-    });
+    await sendMail(lead.email, subject, html);
 
     await updateLead(lead.id, {
       'Status': { status: { name: 'Proposal Sent' } },

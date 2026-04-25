@@ -43,12 +43,29 @@ async function sendEmail(to, templateKey, customSubject) {
 
   const subject = customSubject || template.subject;
 
+  // Strip HTML to create plain text version
+  const text = html
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&mdash;/g, ',')
+    .replace(/&amp;/g, '&')
+    .replace(/&#10003;/g, '✓')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
   try {
     const info = await transporter.sendMail({
-      from: '"Reset Co" <info.resetco@gmail.com>',
+      from: '"Mel at Reset Co" <info.resetco@gmail.com>',
       to: to,
+      replyTo: 'info.resetco@gmail.com',
       subject: subject,
       html: html,
+      text: text,
+      headers: {
+        'X-Mailer': 'Reset Co',
+        'List-Unsubscribe': '<mailto:info.resetco@gmail.com?subject=unsubscribe>',
+      },
     });
     console.log(`SENT to ${to}`);
     console.log(`  Template: ${template.file}`);
