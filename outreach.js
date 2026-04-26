@@ -169,6 +169,17 @@ function pickTemplate(serviceTypes) {
   return { key: '1', file: '01-intro-hospitality.html', subject: 'A more thoughtful approach to cleaning your space' };
 }
 
+// --- Exclude list (existing clients or already dealt with) ---
+const EXCLUDE_NAMES = [
+  'clarendon cottages',
+  'valley ranges getaways',
+];
+
+function isExcluded(leadName) {
+  const lower = (leadName || '').toLowerCase();
+  return EXCLUDE_NAMES.some(ex => lower.includes(ex));
+}
+
 // --- Commands ---
 
 async function cmdSend() {
@@ -183,6 +194,10 @@ async function cmdSend() {
   for (const lead of leads) {
     if (!lead.email) {
       console.log(`  SKIP  ${lead.name}: no email`);
+      continue;
+    }
+    if (isExcluded(lead.name)) {
+      console.log(`  SKIP  ${lead.name}: excluded (existing client)`);
       continue;
     }
 
