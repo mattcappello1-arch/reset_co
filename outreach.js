@@ -173,11 +173,17 @@ function pickTemplate(serviceTypes) {
 const EXCLUDE_NAMES = [
   'clarendon cottages',
   'valley ranges getaways',
+  'cottage in the forest',
+];
+const EXCLUDE_EMAILS = [
+  'valleyrangesgetaways.com.au',
+  'clarendoncottages.com.au',
 ];
 
-function isExcluded(leadName) {
-  const lower = (leadName || '').toLowerCase();
-  return EXCLUDE_NAMES.some(ex => lower.includes(ex));
+function isExcluded(leadName, leadEmail) {
+  const lowerName = (leadName || '').toLowerCase();
+  const lowerEmail = (leadEmail || '').toLowerCase();
+  return EXCLUDE_NAMES.some(ex => lowerName.includes(ex)) || EXCLUDE_EMAILS.some(ex => lowerEmail.includes(ex));
 }
 
 // --- Commands ---
